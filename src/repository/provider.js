@@ -13,7 +13,18 @@ const getProviderByApiKey = async (apiKey) => {
   }
 }
 
+const getApiKeys = async () => {
+  try{
+    const dbClient = getPrismaClient()
+    return await dbClient.provider.findMany()
+  } catch (e) {
+    return e
+  }
+
+}
+
 
 module.exports = {
-  getProviderByApiKey
+  getProviderByApiKey,
+  getApiKeys
 }
