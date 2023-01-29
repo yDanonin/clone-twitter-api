@@ -2,3 +2,4 @@ node_modules
 .env
 logs
 yarn-error.log
+.eslintrc.json
