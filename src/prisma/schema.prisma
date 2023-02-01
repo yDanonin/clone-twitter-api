@@ -15,3 +15,12 @@ model Provider {
   name   String
   apiKey String
 }
+
+model User {
+  email         String   @id
+  nameTag       String   @unique
+  password      String
+  name          String
+  date_of_birth DateTime?
+  bio           String?
+}

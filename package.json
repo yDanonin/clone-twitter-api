@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.js",
-    "prisma": "cd src && npx prisma migrate reset --force && npx prisma db push",
+    "prisma": "cd src && npx prisma migrate reset --force && npx prisma db push && yarn load-apikey",
     "load-apikey": "node src/scripts/load_apiKey.js",
     "lint": "yarn run eslint src/.",
     "lint-fix": "yarn eslint src/. --fix",
