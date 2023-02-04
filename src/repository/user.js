@@ -5,7 +5,7 @@ const insertUser = async (user) => {
     const dbClient = getPrismaClient()
     return await dbClient.user.create({ data: user })
   } catch(e) {
-    return e
+    throw new Error(e)
   }
 }
 
@@ -14,7 +14,7 @@ const getUserByEmail = async (email) => {
     const dbClient = getPrismaClient()
     return await dbClient.user.findUnique({ where: { email } })
   } catch(e) {
-    return e
+    throw new Error(e)
   }
 }
 
@@ -23,7 +23,7 @@ const getUserByNameTag = async (nameTag) => {
     const dbClient = getPrismaClient()
     return await dbClient.user.findUnique({ where: { nameTag } })
   } catch(e) {
-    return e
+    throw new Error(e)
   }
 }
 
@@ -32,7 +32,7 @@ const getUsersByName = async (name) => {
     const dbClient = getPrismaClient()
     return await dbClient.user.findMany({ where: { name }})
   } catch(e) {
-    return e
+    throw new Error(e)
   }
 }
 
@@ -41,7 +41,7 @@ const getAllUsers = async () => {
     const dbClient = getPrismaClient()
     return await dbClient.user.findMany()
   } catch(e) {
-    return e
+    throw new Error(e)
   }
 } 
 
@@ -50,7 +50,7 @@ const deleteUser = async (email) => {
     const dbClient = getPrismaClient()
     return await dbClient.user.delete({ where: { email } })
   } catch(e) {
-    return e
+    throw new Error(e)
   }
 }
 

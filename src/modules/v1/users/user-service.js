@@ -18,6 +18,15 @@ const getAllUsers = async () => {
   }
 }
 
+const getUserByNameTag = async (nameTag) => {
+  try{
+    return await repository.getUserByNameTag(nameTag)
+  } catch(e) {
+    throw new Error(e)
+  }
+
+}
+
 const _encriptyPassword = (password) => {
   return crypto.createHmac('sha256', process.env.SECRET_TO_PASSWORD).update(password).digest('hex')
 }
@@ -25,5 +34,6 @@ const _encriptyPassword = (password) => {
 
 module.exports = {
   createUser,
-  getAllUsers
+  getAllUsers,
+  getUserByNameTag
 }
