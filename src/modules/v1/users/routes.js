@@ -24,4 +24,15 @@ router.get('/', (req, res, next) => {
     })
 })
 
+router.get('/:nameTag', (req, res, next) => {
+  service.getUserByNameTag(req.params.nameTag)
+    .then(result => {
+      res.json(result)
+    })
+    .catch(e => {
+      const httpError = createHttpError(e)
+      next(httpError)
+    })
+})
+
 module.exports = router
